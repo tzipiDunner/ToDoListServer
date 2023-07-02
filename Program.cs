@@ -24,8 +24,6 @@ app.UseSwaggerUI(options =>
     options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
 });
 
-app.MapGet("/", () => "ToDoListServer API is running!");
-
 app.MapGet("/todoitems", (ToDoDbContext context) =>
 {
     return context.Items.ToList();
