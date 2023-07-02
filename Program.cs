@@ -26,7 +26,8 @@ app.UseSwaggerUI(options =>
 
 app.MapGet("/todoitems", (ToDoDbContext context) =>
 {
-    return context.Items;
+   // return context.Items;
+    return "tttttttttttt";
 });
 
 app.MapPost("/todoitems", async (ToDoDbContext context, Item item) =>
