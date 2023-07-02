@@ -41,11 +41,11 @@ app.MapPost("/todoitems", async (ToDoDbContext context, Item item) =>
     return item;
 });
 
-app.MapPut("/todoitems/{id}", async (ToDoDbContext context, Item item, int id) =>
+app.MapPut("/todoitems/{id}", async (ToDoDbContext context, int id) =>
 {
     var todoItem = await context.Items.FindAsync(id);
     if (todoItem is null) return Results.NotFound();
-    todoItem.IsComplete = item.IsComplete;
+    todoItem.IsComplete = !todoItem.IsComplete;
     await context.SaveChangesAsync();
     return Results.NoContent();
 });
